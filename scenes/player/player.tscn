@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1cow3d2qc07g"]
+[gd_scene load_steps=13 format=3 uid="uid://c1cow3d2qc07g"]
 
 [ext_resource type="Texture2D" uid="uid://c1ummadovk4un" path="res://assets/player/knight_m_hit_anim_f0.png" id="1_5gtgg"]
+[ext_resource type="Script" uid="uid://c5120cpj3wehg" path="res://scripts/player/player.gd" id="1_h17s1"]
 [ext_resource type="Texture2D" uid="uid://cu2rmy8kn18q8" path="res://assets/player/knight_m_idle_anim_f0.png" id="2_h17s1"]
 [ext_resource type="Texture2D" uid="uid://dtb7vmhpcnlw8" path="res://assets/player/knight_m_idle_anim_f1.png" id="3_je7p5"]
 [ext_resource type="Texture2D" uid="uid://b8h7voi5euy6o" path="res://assets/player/knight_m_idle_anim_f2.png" id="4_fm80t"]
@@ -59,6 +60,7 @@ animations = [{
 radius = 6.0
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_h17s1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
