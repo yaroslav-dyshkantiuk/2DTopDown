@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://bpq1i2jr3is0q"]
+[gd_scene load_steps=4 format=4 uid="uid://bpq1i2jr3is0q"]
 
 [ext_resource type="TileSet" uid="uid://dtoq83ltlvomb" path="res://resourses/world.tres" id="1_nbgty"]
 [ext_resource type="PackedScene" uid="uid://c1cow3d2qc07g" path="res://scenes/player/player.tscn" id="2_i166f"]
+[ext_resource type="PackedScene" uid="uid://rn3fh5xk3rhm" path="res://scenes/mushroom/mushroom.tscn" id="3_i166f"]
 
 [node name="Level" type="Node"]
 
@@ -10,4 +11,5 @@ tile_map_data = PackedByteArray("AAAmABcAAQABAAQAAAAmABYAAQABAAQAAAAmABUAAQABAAQ
 tile_set = ExtResource("1_nbgty")
 
 [node name="Player" parent="." instance=ExtResource("2_i166f")]
-position = Vector2(318, 193)
+
+[node name="Mushroom" parent="." instance=ExtResource("3_i166f")]
