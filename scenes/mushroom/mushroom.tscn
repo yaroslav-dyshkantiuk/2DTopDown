@@ -50,7 +50,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_mc0kr"]
 radius = 4.0
 
-[node name="Mushroom" type="CharacterBody2D"]
+[node name="Mushroom" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 0
 script = ExtResource("1_3xhj6")
 
