@@ -8,7 +8,7 @@ func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var direction = get_direction_to_player()
 	velocity = max_speed * direction
 	move_and_slide()
@@ -18,3 +18,6 @@ func get_direction_to_player():
 	if player != null:
 		return (player.global_position - global_position).normalized()
 	return Vector2.ZERO
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	queue_free()
