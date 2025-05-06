@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dckh6d7w60v3j"]
 
-[ext_resource type="Script" uid="uid://byo8lnjjnps0w" path="res://scripts/abilities/attack_controller.gd" id="1_r234c"]
+[ext_resource type="Script" uid="uid://byo8lnjjnps0w" path="res://scenes/abilities/attack_controller.gd" id="1_r234c"]
 [ext_resource type="PackedScene" uid="uid://ch786m537qkcu" path="res://scenes/abilities/attack_ability.tscn" id="2_2fgcl"]
 
 [node name="AttackController" type="Node"]
