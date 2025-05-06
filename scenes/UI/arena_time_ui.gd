@@ -11,6 +11,7 @@ func _process(_delta: float) -> void:
 	label.text = format_timer(time_elapsed)
 
 func format_timer(seconds: float) -> String:
-	var minutes := int(seconds) / 60
-	var remaining_seconds := int(seconds) % 60
+	var total_seconds := int(seconds)
+	var minutes := total_seconds / 60
+	var remaining_seconds := total_seconds % 60
 	return "%02d:%02d" % [minutes, remaining_seconds]
