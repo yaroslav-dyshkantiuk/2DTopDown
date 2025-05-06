@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bpq1i2jr3is0q"]
+[gd_scene load_steps=11 format=4 uid="uid://bpq1i2jr3is0q"]
 
 [ext_resource type="PackedScene" uid="uid://cl71m472s6gng" path="res://scenes/manager/spawner/enemy_spawner.tscn" id="1_i166f"]
 [ext_resource type="TileSet" uid="uid://dtoq83ltlvomb" path="res://resourses/world.tres" id="1_nbgty"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://vlqjb2p0wvfb" path="res://scenes/UI/experience_bar.tscn" id="1_xv074"]
 [ext_resource type="PackedScene" uid="uid://bhte3j20eg6ve" path="res://scenes/manager/arena_time_manager.tscn" id="2_hnne4"]
 [ext_resource type="PackedScene" uid="uid://c1cow3d2qc07g" path="res://scenes/game_objects/player/player.tscn" id="2_i166f"]
+[ext_resource type="PackedScene" uid="uid://dipgnfx72jqgc" path="res://scenes/manager/upgrade_manager.tscn" id="3_tf2q7"]
+[ext_resource type="Script" uid="uid://bsnu5qrgqhiie" path="res://resourses/upgrades/ability_upgrade.gd" id="4_pe1ox"]
+[ext_resource type="Resource" uid="uid://db41gcy5r2527" path="res://resourses/upgrades/sword_rate.tres" id="5_m0bv2"]
 
 [node name="Level" type="Node"]
 
@@ -14,6 +17,10 @@
 experience_manager = NodePath("../ExperienceManager")
 
 [node name="ExperienceManager" parent="." instance=ExtResource("1_wcngd")]
+
+[node name="UpgradeManager" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("3_tf2q7")]
+experience_manager = NodePath("../ExperienceManager")
+upgrade_pool = Array[ExtResource("4_pe1ox")]([ExtResource("5_m0bv2")])
 
 [node name="ArenaTimeUI" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_qkmgm")]
 arena_time_manager = NodePath("../ArenaTimeManager")
