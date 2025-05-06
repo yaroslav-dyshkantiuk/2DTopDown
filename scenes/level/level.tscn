@@ -33,5 +33,10 @@ tile_set = ExtResource("1_nbgty")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("1_i166f")]
 
-[node name="Player" parent="." instance=ExtResource("2_i166f")]
+[node name="Front" type="Node2D" parent="." groups=["front_layer"]]
+
+[node name="Back" type="Node2D" parent="." groups=["back_layer"]]
+y_sort_enabled = true
+
+[node name="Player" parent="Back" instance=ExtResource("2_i166f")]
 position = Vector2(319, 173)

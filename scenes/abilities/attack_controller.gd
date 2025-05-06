@@ -36,7 +36,8 @@ func _on_timer_timeout() -> void:
 	var enemy_pos = enemies[0].global_position
 	
 	var attack_instance = attack_ability.instantiate() as AttackAbility
-	player.get_parent().add_child(attack_instance)
+	var front_layer = get_tree().get_first_node_in_group("front_layer")
+	front_layer.add_child(attack_instance)
 	attack_instance.hit_box_component.damage = sword_damage
 	attack_instance.global_position = (enemy_pos + player_pos) / 2
 	attack_instance.look_at(enemy_pos)
