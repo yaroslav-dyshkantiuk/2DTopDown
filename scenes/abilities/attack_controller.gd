@@ -1,9 +1,16 @@
 extends Node
 
-var attack_range = 100
-var sword_damage = 5
+@onready var timer: Timer = $Timer
 
 @export var attack_ability: PackedScene
+
+var attack_range = 100
+var sword_damage = 5
+var default_attack_speed
+
+func _ready() -> void:
+	Global.ability_upgrade_added.connect(on_upgrade_added)
+	default_attack_speed = timer.wait_time
 
 func _on_timer_timeout() -> void:
 	var player = get_tree().get_first_node_in_group("player") as Node2D
@@ -33,3 +40,12 @@ func _on_timer_timeout() -> void:
 	attack_instance.hit_box_component.damage = sword_damage
 	attack_instance.global_position = (enemy_pos + player_pos) / 2
 	attack_instance.look_at(enemy_pos)
+
+func on_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+	if upgrade.id != "sword_rate":
+		return
+	
+	var upgrade_percent = current_upgrades["sword_rate"]["quantity"] * .1
+	timer.wait_time = max(0.1, default_attack_speed * (1 - upgrade_percent))
+	timer.start()
+	print(timer.wait_time)
