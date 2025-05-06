@@ -1,6 +1,6 @@
 extends Node
 
-@export var drop_probability = .5
+@export var drop_probability = 1
 @export var exp_bottle_scene: PackedScene
 @export var health_component: Node
 
@@ -8,7 +8,7 @@ func _ready() -> void:
 	(health_component as HealthComponent).died.connect(on_died)
 
 func on_died():
-	if randf() < drop_probability:
+	if randf() > drop_probability:
 		return
 	if exp_bottle_scene == null:
 		return
