@@ -49,4 +49,3 @@ func on_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	var upgrade_percent = current_upgrades["sword_rate"]["quantity"] * .1
 	timer.wait_time = max(0.1, default_attack_speed * (1 - upgrade_percent))
 	timer.start()
-	print(timer.wait_time)
