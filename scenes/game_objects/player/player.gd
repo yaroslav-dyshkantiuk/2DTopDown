@@ -30,7 +30,7 @@ func check_if_damage():
 	health_component.take_damage(1)
 	grace_period.start()
 
-func _on_player_hurt_box_area_entered(_sarea: Area2D) -> void:
+func _on_player_hurt_box_area_entered(_area: Area2D) -> void:
 	enemies_colliding += 1
 	check_if_damage()
 
