@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c1cow3d2qc07g"]
+[gd_scene load_steps=19 format=3 uid="uid://c1cow3d2qc07g"]
 
 [ext_resource type="Texture2D" uid="uid://c1ummadovk4un" path="res://assets/player/knight_m_hit_anim_f0.png" id="1_5gtgg"]
 [ext_resource type="Script" uid="uid://c5120cpj3wehg" path="res://scenes/game_objects/player/player.gd" id="1_h17s1"]
@@ -12,6 +12,17 @@
 [ext_resource type="Texture2D" uid="uid://b6e8k5lhnwva3" path="res://assets/player/knight_m_run_anim_f1.png" id="7_fcs02"]
 [ext_resource type="Texture2D" uid="uid://c8q1xoxhjbd2q" path="res://assets/player/knight_m_run_anim_f2.png" id="8_myrg7"]
 [ext_resource type="Texture2D" uid="uid://d4hutx1dq1q3k" path="res://assets/player/knight_m_run_anim_f3.png" id="9_kvlxm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pad3l"]
+bg_color = Color(0.133333, 0.133333, 0.133333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84ntt"]
+bg_color = Color(0.886275, 0.2, 0.219608, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.133333, 0.133333, 0.133333, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3mdk8"]
 radius = 32.0
@@ -79,7 +90,21 @@ script = ExtResource("1_h17s1")
 [node name="HealthComponent" parent="." instance=ExtResource("3_pad3l")]
 
 [node name="GracePeriod" type="Timer" parent="."]
+wait_time = 0.2
 one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(24, 4)
+offset_left = -12.0
+offset_top = 3.0
+offset_right = 12.0
+offset_bottom = 7.0
+pivot_offset = Vector2(12, 2)
+theme_override_styles/background = SubResource("StyleBoxFlat_pad3l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_84ntt")
+max_value = 1.0
+value = 0.5
+show_percentage = false
 
 [node name="PickUpArea" type="Area2D" parent="."]
 collision_layer = 8
@@ -99,8 +124,6 @@ autoplay = "idle"
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_lgqa7")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="PlayerHurtBox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 16
@@ -109,5 +132,6 @@ collision_mask = 16
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_84ntt")
 
+[connection signal="timeout" from="GracePeriod" to="." method="_on_grace_period_timeout"]
 [connection signal="area_entered" from="PlayerHurtBox" to="." method="_on_player_hurt_box_area_entered"]
 [connection signal="area_exited" from="PlayerHurtBox" to="." method="_on_player_hurt_box_area_exited"]
