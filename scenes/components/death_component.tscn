@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3k7h3u8glmnb"]
+
+[ext_resource type="Texture2D" uid="uid://dnt4f8unnw8ic" path="res://assets/mushroom/SmallMushroom_Idle_1.png" id="1_814u5"]
+
+[sub_resource type="Curve" id="Curve_ddno3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.627551, 1), 0.0, 0.0, 0, 0, Vector2(0.994898, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ka72u"]
+curve = SubResource("Curve_ddno3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1ivdg"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 15.0
+initial_velocity_min = 80.0
+initial_velocity_max = 120.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+gravity = Vector3(0, 300, 0)
+alpha_curve = SubResource("CurveTexture_ka72u")
+
+[sub_resource type="Animation" id="Animation_814u5"]
+resource_name = "death"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ddno3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ka72u"]
+_data = {
+&"RESET": SubResource("Animation_ddno3"),
+&"death": SubResource("Animation_814u5")
+}
+
+[node name="DeathComponent" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, -16)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Node2D"]
+amount = 1
+texture = ExtResource("1_814u5")
+lifetime = 0.8
+interpolate = false
+process_material = SubResource("ParticleProcessMaterial_1ivdg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ka72u")
+}
+autoplay = "death"
