@@ -2,7 +2,7 @@ extends Node
 
 @export var end_screen: PackedScene
 
-@onready var player: CharacterBody2D = $Back/Player
+@onready var player: CharacterBody2D = $BackLayer/Player
 
 func _ready() -> void:
 	player.health_component.died.connect(on_died)

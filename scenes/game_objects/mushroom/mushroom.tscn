@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cyn2fnknswi3t" path="res://scenes/components/exp_bottle_drop_component.tscn" id="3_qwfqx"]
 [ext_resource type="Texture2D" uid="uid://bx0lqw3m3t7cy" path="res://assets/mushroom/SmallMushroom_Idle_2.png" id="3_xodf7"]
 [ext_resource type="Texture2D" uid="uid://8k5favqiwto1" path="res://assets/mushroom/SmallMushroom_Idle_3.png" id="4_q3l2m"]
-[ext_resource type="PackedScene" uid="uid://td2025il0817" path="res://scenes/hurt_box_component.tscn" id="4_whr3r"]
+[ext_resource type="PackedScene" uid="uid://td2025il0817" path="res://scenes/components/hurt_box_component.tscn" id="4_whr3r"]
 [ext_resource type="Texture2D" uid="uid://mcs34kmt4g6y" path="res://assets/mushroom/SmallMushroom_Idle_4.png" id="5_xpinu"]
 [ext_resource type="Texture2D" uid="uid://0p0fbxejkqxy" path="res://assets/mushroom/SmallMushroom_Walk_1.png" id="6_mfwdf"]
 [ext_resource type="Texture2D" uid="uid://oebwnf3agsfo" path="res://assets/mushroom/SmallMushroom_Walk_2.png" id="7_jio5h"]

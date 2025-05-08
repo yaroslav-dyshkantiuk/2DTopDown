@@ -43,13 +43,13 @@ tile_set = ExtResource("1_nbgty")
 [node name="EnemySpawner" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_i166f")]
 arena_time_manager = NodePath("../ArenaTimeManager")
 
-[node name="Front" type="Node2D" parent="." groups=["front_layer"]]
-
-[node name="Back" type="Node2D" parent="." groups=["back_layer"]]
+[node name="BackLayer" type="Node2D" parent="." groups=["back_layer"]]
 y_sort_enabled = true
 
-[node name="Player" parent="Back" instance=ExtResource("2_i166f")]
+[node name="Player" parent="BackLayer" instance=ExtResource("2_i166f")]
 position = Vector2(319, 173)
+
+[node name="FrontLayer" type="Node2D" parent="." groups=["front_layer"]]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("11_pe1ox")
