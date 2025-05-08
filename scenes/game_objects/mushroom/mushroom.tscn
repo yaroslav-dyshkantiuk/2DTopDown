@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://rn3fh5xk3rhm"]
+[gd_scene load_steps=18 format=3 uid="uid://rn3fh5xk3rhm"]
 
 [ext_resource type="Script" uid="uid://bwwlexfj16ogo" path="res://scenes/game_objects/mushroom/mushroom.gd" id="1_3xhj6"]
 [ext_resource type="PackedScene" uid="uid://4kqnaoa1sx3y" path="res://scenes/components/health_component.tscn" id="2_5cw77"]
+[ext_resource type="PackedScene" uid="uid://d3k7h3u8glmnb" path="res://scenes/components/death_component.tscn" id="2_hu3ky"]
 [ext_resource type="Texture2D" uid="uid://dnt4f8unnw8ic" path="res://assets/mushroom/SmallMushroom_Idle_1.png" id="2_ieewv"]
 [ext_resource type="PackedScene" uid="uid://cyn2fnknswi3t" path="res://scenes/components/exp_bottle_drop_component.tscn" id="3_qwfqx"]
 [ext_resource type="Texture2D" uid="uid://bx0lqw3m3t7cy" path="res://assets/mushroom/SmallMushroom_Idle_2.png" id="3_xodf7"]
@@ -62,6 +63,8 @@ radius = 5.0
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_3xhj6")
+death_scene = ExtResource("2_hu3ky")
+sprite = ExtResource("2_ieewv")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_5cw77")]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://d3k7h3u8glmnb"]
 
-[ext_resource type="Texture2D" uid="uid://dnt4f8unnw8ic" path="res://assets/mushroom/SmallMushroom_Idle_1.png" id="1_814u5"]
+[ext_resource type="Script" uid="uid://ba4n8h2xka01x" path="res://scenes/components/death_component.gd" id="1_ddno3"]
 
 [sub_resource type="Curve" id="Curve_ddno3"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.627551, 1), 0.0, 0.0, 0, 0, Vector2(0.994898, 0), 0.0, 0.0, 0, 0]
@@ -72,13 +72,13 @@ _data = {
 }
 
 [node name="DeathComponent" type="Node2D"]
+script = ExtResource("1_ddno3")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(0, -16)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Node2D"]
 amount = 1
-texture = ExtResource("1_814u5")
 lifetime = 0.8
 interpolate = false
 process_material = SubResource("ParticleProcessMaterial_1ivdg")
