@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="NewAbility" load_steps=3 format=3 uid="uid://bspx0d0qo0r1p"]
+
+[ext_resource type="PackedScene" uid="uid://cvaukt1kqe2ly" path="res://scenes/abilities/axe_ability_controller.tscn" id="1_pyfeg"]
+[ext_resource type="Script" uid="uid://bt20hnjoturvc" path="res://resourses/upgrades/new_ability.gd" id="2_d42rp"]
+
+[resource]
+script = ExtResource("2_d42rp")
+new_ability_scene = ExtResource("1_pyfeg")
+id = "thow_axe"
+name = "Throw Axe"
+description = "Spawns the spinning Axe"

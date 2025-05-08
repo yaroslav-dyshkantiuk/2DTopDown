@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var grace_period: Timer = $GracePeriod
 @onready var progress_bar: ProgressBar = $ProgressBar
+@onready var ability_manager: Node = $AbilityManager
 
 var max_speed = 125
 var acceleration = .15
@@ -11,6 +12,7 @@ var enemies_colliding = 0
 func _ready() -> void:
 	health_component.died.connect(on_died)
 	health_component.health_changed.connect(on_health_changed)
+	Global.ability_upgrade_added.connect(on_ability_upgrade_added)
 	health_update()
 
 func _process(_delta: float) -> void:
@@ -49,3 +51,11 @@ func on_health_changed():
 
 func _on_grace_period_timeout() -> void:
 	check_if_damage()
+
+
+func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+	if not upgrade is NewAbility:
+		return
+		
+	var new_ability = upgrade as NewAbility
+	ability_manager.add_child(new_ability.new_ability_scene.instantiate())
