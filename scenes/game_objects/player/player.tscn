@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c1cow3d2qc07g"]
+[gd_scene load_steps=22 format=3 uid="uid://c1cow3d2qc07g"]
 
 [ext_resource type="Texture2D" uid="uid://c1ummadovk4un" path="res://assets/player/knight_m_hit_anim_f0.png" id="1_5gtgg"]
 [ext_resource type="Script" uid="uid://c5120cpj3wehg" path="res://scenes/game_objects/player/player.gd" id="1_h17s1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dtb7vmhpcnlw8" path="res://assets/player/knight_m_idle_anim_f1.png" id="3_je7p5"]
 [ext_resource type="PackedScene" uid="uid://4kqnaoa1sx3y" path="res://scenes/components/health_component.tscn" id="3_pad3l"]
 [ext_resource type="Texture2D" uid="uid://b8h7voi5euy6o" path="res://assets/player/knight_m_idle_anim_f2.png" id="4_fm80t"]
+[ext_resource type="PackedScene" uid="uid://ciqgwxblgwxwu" path="res://scenes/components/movement_component.tscn" id="4_g8suy"]
 [ext_resource type="PackedScene" uid="uid://cvb4oretd7oee" path="res://scenes/components/flash_component.tscn" id="4_qwalg"]
 [ext_resource type="Shader" uid="uid://cukjisu8fat63" path="res://scenes/components/flash_component.gdshader" id="5_g8suy"]
 [ext_resource type="Texture2D" uid="uid://bofba20tcwytm" path="res://assets/player/knight_m_idle_anim_f3.png" id="5_gx1jg"]
@@ -92,6 +93,10 @@ script = ExtResource("1_h17s1")
 [node name="AttackController" parent="AbilityManager" instance=ExtResource("2_je7p5")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_pad3l")]
+
+[node name="MovementComponent" parent="." instance=ExtResource("4_g8suy")]
+max_speed = 90
+acceleration = 25.0
 
 [node name="FlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_qwalg")]
 health_component = NodePath("../HealthComponent")
