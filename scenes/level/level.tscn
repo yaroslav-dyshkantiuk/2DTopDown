@@ -18,6 +18,8 @@
 script = ExtResource("1_m0bv2")
 end_screen = ExtResource("2_b7m21")
 
+[node name="Vignette" parent="." instance=ExtResource("13_b7m21")]
+
 [node name="ExperienceBar" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("1_xv074")]
 experience_manager = NodePath("../ExperienceManager")
 
@@ -53,5 +55,3 @@ position = Vector2(319, 173)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("11_pe1ox")
-
-[node name="Vignette" parent="." instance=ExtResource("13_b7m21")]
