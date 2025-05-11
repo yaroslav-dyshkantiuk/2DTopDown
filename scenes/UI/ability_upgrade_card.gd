@@ -3,8 +3,8 @@ class_name AbilityUpgradeCard
 
 signal card_selected
 
-@onready var name_label: Label = $VBoxContainer/NameLabel
-@onready var description_label: Label = $VBoxContainer/DescriptionLabel
+@onready var name_label: Label = $MarginContainer/VBoxContainer/PanelContainer/NameLabel
+@onready var description_label: Label = $MarginContainer/VBoxContainer/DescriptionLabel
 
 func set_ability_upgrade(upgrade: AbilityUpgrade):
 	name_label.text = upgrade.name
