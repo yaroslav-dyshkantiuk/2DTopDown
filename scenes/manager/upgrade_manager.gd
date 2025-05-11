@@ -43,19 +43,21 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 
 
 func pick_upgrades():
-	var choosen_upgrades: Array[AbilityUpgrade]
+	var chosen_upgrades: Array[AbilityUpgrade]
 	for i in upgrade_pool.upgrades.size():
-		var choosen_upgrade = upgrade_pool.pick_upgrade(choosen_upgrades)
-		choosen_upgrades.append(choosen_upgrade)
+		if upgrade_pool.upgrades.size() == chosen_upgrades.size():
+			break
+		var chosen_upgrade = upgrade_pool.pick_upgrade(chosen_upgrades)
+		chosen_upgrades.append(chosen_upgrade)
 	
-	return choosen_upgrades
+	return chosen_upgrades
 
 func on_level_up(_current_level):
 
 	var upgrade_screen_instance = upgrade_screen_scene.instantiate() as UpgradeScreen
 	add_child(upgrade_screen_instance)
-	var choosen_upgrades = pick_upgrades()
-	upgrade_screen_instance.set_ability_upgrades(choosen_upgrades as Array[AbilityUpgrade])
+	var chosen_upgrades = pick_upgrades()
+	upgrade_screen_instance.set_ability_upgrades(chosen_upgrades as Array[AbilityUpgrade])
 	upgrade_screen_instance.upgrade_selected.connect(on_upgrade_selected)
 
 
