@@ -57,6 +57,7 @@ func on_died():
 	queue_free()
 
 func on_health_changed():
+	Global.player_damage.emit()
 	health_update()
 
 func _on_grace_period_timeout() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bpq1i2jr3is0q"]
+[gd_scene load_steps=14 format=4 uid="uid://bpq1i2jr3is0q"]
 
 [ext_resource type="PackedScene" uid="uid://cl71m472s6gng" path="res://scenes/manager/spawner/enemy_spawner.tscn" id="1_i166f"]
 [ext_resource type="Script" uid="uid://dgu15m2tvrqo" path="res://scenes/level/level.gd" id="1_m0bv2"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dipgnfx72jqgc" path="res://scenes/manager/upgrade_manager.tscn" id="3_tf2q7"]
 [ext_resource type="PackedScene" uid="uid://3382sc7o0itj" path="res://scenes/game_objects/goblin/goblin.tscn" id="9_m0bv2"]
 [ext_resource type="Script" uid="uid://dqhbmgus3c0h1" path="res://scenes/level/camera_2d.gd" id="11_pe1ox"]
+[ext_resource type="PackedScene" uid="uid://rhxbdtpwkhl4" path="res://scenes/UI/vignette.tscn" id="13_b7m21"]
 
 [node name="Level" type="Node"]
 script = ExtResource("1_m0bv2")
@@ -52,3 +53,5 @@ position = Vector2(319, 173)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("11_pe1ox")
+
+[node name="Vignette" parent="." instance=ExtResource("13_b7m21")]
