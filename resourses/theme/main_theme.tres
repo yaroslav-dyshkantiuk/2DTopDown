@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://deubklhiijpm6"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://deubklhiijpm6"]
 
 [ext_resource type="FontFile" uid="uid://bqohdknpygyik" path="res://assets/fonts/Bitfantasy.ttf" id="1_cbuv0"]
 [ext_resource type="Texture2D" uid="uid://dok7dic1y2yp2" path="res://assets/ui_panel.png" id="1_v028x"]
@@ -23,8 +23,12 @@ texture_margin_top = 2.0
 texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pad3l"]
+bg_color = Color(0.133333, 0.133333, 0.133333, 1)
+
 [resource]
 default_font = ExtResource("1_cbuv0")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_cbuv0")
 PanelContainer2/base_type = &"PanelContainer"
 PanelContainer2/styles/panel = SubResource("StyleBoxTexture_ir2eg")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_pad3l")
