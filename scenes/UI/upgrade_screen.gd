@@ -5,6 +5,7 @@ signal upgrade_selected(upgrade: AbilityUpgrade)
 
 @export var upgrade_card_scene: PackedScene
 @onready var card_container: HBoxContainer = $MarginContainer/CardContainer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	get_tree().paused = true
@@ -21,5 +22,7 @@ func set_ability_upgrades(upgrades: Array[AbilityUpgrade]):
 
 func on_upgrade_selected(upgrade: AbilityUpgrade):
 	upgrade_selected.emit(upgrade)
+	animation_player.play("out")
+	await animation_player.animation_finished
 	get_tree().paused = false
 	queue_free()
