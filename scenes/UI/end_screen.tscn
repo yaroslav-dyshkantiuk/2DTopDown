@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx7okvk8pw6gh"]
+[gd_scene load_steps=9 format=3 uid="uid://cx7okvk8pw6gh"]
 
 [ext_resource type="Script" uid="uid://bpof6fsy160dn" path="res://scenes/UI/end_screen.gd" id="1_20kt3"]
+[ext_resource type="PackedScene" uid="uid://ddabhnkynu0gc" path="res://scenes/UI/sound_button.tscn" id="2_2xf1k"]
+[ext_resource type="AudioStream" uid="uid://c2k02bfd7gpau" path="res://assets/sounds/jingles/victory2.ogg" id="3_vhg70"]
+[ext_resource type="AudioStream" uid="uid://cwldamj7xheqf" path="res://assets/sounds/jingles/game_over3.ogg" id="4_ymqa5"]
 
 [sub_resource type="Animation" id="Animation_klice"]
 length = 0.001
@@ -106,13 +109,23 @@ text = "Game Over"
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="RestartButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="RestartButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_2xf1k")]
 layout_mode = 2
 text = "Restart"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_2xf1k")]
 layout_mode = 2
 text = "Quit"
+
+[node name="VictorySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vhg70")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="DefeatSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ymqa5")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c1cow3d2qc07g"]
+[gd_scene load_steps=28 format=3 uid="uid://c1cow3d2qc07g"]
 
 [ext_resource type="Texture2D" uid="uid://c1ummadovk4un" path="res://assets/player/knight_m_hit_anim_f0.png" id="1_5gtgg"]
 [ext_resource type="Script" uid="uid://c5120cpj3wehg" path="res://scenes/game_objects/player/player.gd" id="1_h17s1"]
@@ -15,6 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://b6e8k5lhnwva3" path="res://assets/player/knight_m_run_anim_f1.png" id="7_fcs02"]
 [ext_resource type="Texture2D" uid="uid://c8q1xoxhjbd2q" path="res://assets/player/knight_m_run_anim_f2.png" id="8_myrg7"]
 [ext_resource type="Texture2D" uid="uid://d4hutx1dq1q3k" path="res://assets/player/knight_m_run_anim_f3.png" id="9_kvlxm"]
+[ext_resource type="AudioStream" uid="uid://d3m56me0woxwm" path="res://assets/sounds/hit/damage1.ogg" id="16_rl6uc"]
+[ext_resource type="AudioStream" uid="uid://claqmtp2lco6o" path="res://assets/sounds/hit/damage2.ogg" id="17_d2mjs"]
+[ext_resource type="AudioStream" uid="uid://b1lmnlacuv5nt" path="res://assets/sounds/hit/damage3.ogg" id="18_r1mhb"]
+[ext_resource type="AudioStream" uid="uid://cfjhx6gkcnykj" path="res://assets/sounds/hit/damage4.ogg" id="19_7mys8"]
+[ext_resource type="AudioStream" uid="uid://dv8i2uwpevcdj" path="res://assets/sounds/hit/damage5.ogg" id="20_4fxbh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1ns1k"]
 resource_local_to_scene = true
@@ -84,6 +89,14 @@ radius = 6.0
 radius = 5.0
 height = 16.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xqgej"]
+streams_count = 5
+stream_0/stream = ExtResource("16_rl6uc")
+stream_1/stream = ExtResource("17_d2mjs")
+stream_2/stream = ExtResource("18_r1mhb")
+stream_3/stream = ExtResource("19_7mys8")
+stream_4/stream = ExtResource("20_4fxbh")
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 0
 script = ExtResource("1_h17s1")
@@ -144,6 +157,10 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtBox"]
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_84ntt")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_xqgej")
+bus = &"SFX"
 
 [connection signal="timeout" from="GracePeriod" to="." method="_on_grace_period_timeout"]
 [connection signal="area_entered" from="PlayerHurtBox" to="." method="_on_player_hurt_box_area_entered"]

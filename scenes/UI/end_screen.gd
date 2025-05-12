@@ -15,6 +15,15 @@ func _ready() -> void:
 func change_to_victory():
 	name_label.text = "Victory"
 
+
+func play_jingle(victory: bool = false):
+	MusicPlayer.stop()
+	if victory:
+		$VictorySound.play()
+	else:
+		$DefeatSound.play()
+
+
 func _on_restart_button_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/level/level.tscn")

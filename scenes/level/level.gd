@@ -5,8 +5,10 @@ extends Node
 @onready var player: CharacterBody2D = $BackLayer/Player
 
 func _ready() -> void:
+	MusicPlayer.play()
 	player.health_component.died.connect(on_died)
 
 func on_died():
 	var end_screen_instance = end_screen.instantiate() as EndScreen
 	add_child(end_screen_instance)
+	end_screen_instance.play_jingle()
